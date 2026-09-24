@@ -16,7 +16,7 @@ const emptyRecipe = {
   image_url: "",
   ingredients: [""],
   steps: [""],
-  category: "Main Dish",
+  category: "Entrée",
 };
 
 function AddEditRecipePage() {
@@ -54,7 +54,7 @@ function AddEditRecipePage() {
             recipe.steps?.length > 0
               ? recipe.steps
               : [""],
-          category: recipe.category || "Main Dish",
+          category: recipe.category || "Entrée",
         });
       } catch (error) {
         console.error("Failed to load recipe:", error);
@@ -226,11 +226,10 @@ function AddEditRecipePage() {
                 onChange={handleChange}
                 required
               >
-                <option value="Main Dish">Main Dish</option>
-                <option value="Side Dish">Side Dish</option>
+                <option value="Entrée">Entrée</option>
+                <option value="Appetizer">Appetizer</option>
                 <option value="Dessert">Dessert</option>
                 <option value="Soup">Soup</option>
-                <option value="Snack">Snack</option>
                 <option value="Drink">Drink</option>
                 <option value="Other">Other</option>
               </select>
