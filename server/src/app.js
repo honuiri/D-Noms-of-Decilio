@@ -10,45 +10,46 @@ const allowedOrigins = (process.env.CORS_ORIGINS || "")
   .map((origin) => origin.trim())
   .filter(Boolean);
 
-  app.use(
-    cors({
-        origin(origin, callback) {
-            if (!origin || allowedOrigins.length === 0) {
-                return callback(null, true);
-            }
-            if (allowedOrigins.includes(origin)) {
-                return callback(null, true);
-            }
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.length === 0) {
+        return callback(null, true);
+      }
 
-            return callback(new Error("Not allowed by CORS"));
-        },
-    })
-  );
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
 
-  app.use(express.json());
+      return callback(new Error("Not allowed by CORS"));
+    },
+  })
+);
 
-  app.get("/healthz", (req, res) => {
-    res.json({ status: "ok "});
-  });
+app.use(express.json());
 
-  app.get("/readyz", (req, res) => {
-    try {
-        await pool.query("SELECT 1");
+app.get("/healthz", (req, res) => {
+  res.json({ status: "ok" });
+});
 
-        res.json({
-            status: "ready",
-            database: "ok",
-        });
-    } catch (error) {
-        console.error("Database readiness check failed: ", error);
+app.get("/readyz", async (req, res) => {
+  try {
+    await pool.query("SELECT 1");
 
-        res.status(503).json({
-            status: "not ready",
-            database: "unavailable",
-        });
-    }
-  });
+    res.json({
+      status: "ready",
+      database: "ok",
+    });
+  } catch (error) {
+    console.error("Database readiness check failed:", error);
 
-  app.use("/api/recipes", recipeRoutes);
+    res.status(503).json({
+      status: "not ready",
+      database: "unavailable",
+    });
+  }
+});
 
-  export default app;
+app.use("/api/recipes", recipeRoutes);
+
+export default app;
