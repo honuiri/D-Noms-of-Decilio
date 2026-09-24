@@ -115,6 +115,47 @@ main {
 }
 
 /* =========================
+   RECIPES NAV DROPDOWN
+========================= */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 130px;
+  padding: 8px 0;
+  background: var(--color-background);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1001;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 7px 14px;
+  color: var(--color-primary);
+  font-family: "Baskervville", serif;
+  font-size: 13px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background: var(--color-secondary);
+}
+
+/* =========================
    HERO
 ========================= */
 

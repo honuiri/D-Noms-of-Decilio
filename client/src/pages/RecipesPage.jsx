@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import Header from "../components/organisms/Header.jsx";
 import Footer from "../components/organisms/Footer.jsx";
@@ -7,6 +8,7 @@ import RecipeCard from "../components/molecules/RecipeCard.jsx";
 import { listRecipes } from "../api/index.js";
 
 function RecipesPage() {
+  const [searchParams] = useSearchParams();
   const [recipes, setRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -31,6 +33,16 @@ function RecipesPage() {
 
     loadRecipes();
   }, []);
+
+  useEffect(() => {
+    const categoryFromUrl = searchParams.get("category");
+
+    if (categoryFromUrl) {
+        setSelectedCategory(categoryFromUrl);
+    } else {
+        setSelectedCategory("All");
+    }
+    }, [searchParams]);
 
   const categories = [
     "All",
