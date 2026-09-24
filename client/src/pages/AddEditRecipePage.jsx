@@ -231,7 +231,6 @@ function AddEditRecipePage() {
                 <option value="Dessert">Dessert</option>
                 <option value="Soup">Soup</option>
                 <option value="Drink">Drink</option>
-                <option value="Other">Other</option>
               </select>
             </div>
 

@@ -34,8 +34,12 @@ function RecipesPage() {
 
   const categories = [
     "All",
-    ...new Set(recipes.map((recipe) => recipe.category).filter(Boolean)),
-  ];
+    "Entrée",
+    "Appetizer",
+    "Dessert",
+    "Soup",
+    "Drink",
+   ];
 
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch = recipe.name

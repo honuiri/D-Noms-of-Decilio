@@ -387,7 +387,7 @@ main {
 .recipe-collection .recipe-card h3 {
   min-height: auto;
   padding: 8px 0 2px;
-  color: var(--color-primary);
+  color: #000;
   font-family: "Baskervville", serif;
   font-size: 15px;
   font-weight: 400;
@@ -397,7 +397,7 @@ main {
   display: block;
   margin: 0;
   color: var(--color-primary);
-  font-family: "Baskervville", serif;
+  font-family: "Instrument Sans", sans-serif;
   font-size: 9px;
   font-style: italic;
 }
@@ -407,9 +407,9 @@ main {
   margin-top: 7px;
   padding: 3px 9px;
   border-radius: 10px;
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  font-family: "Baskervville", serif;
+  background: var(--color-accent-2);
+  color: #000;
+  font-family: "Instrument Sans", sans-serif;
   font-size: 7px;
 }
 
