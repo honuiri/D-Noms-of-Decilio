@@ -63,7 +63,7 @@ export async function createRecipe(recipe) {
         )
         VALUES
         ($1, $2, $3, $4, $5, $6) RETURNING *`,
-        [name, description, image_url, JSON.stringify(ingredients), JSON/stringify(steps), category,]
+        [name, description, image_url, JSON.stringify(ingredients), JSON.stringify(steps), category,]
     );
 
     return result.rows[0];

@@ -1,5 +1,6 @@
 # Secrets. Never commit these.
 .env
+client/.env
 .env.*
 !.env.example
 
