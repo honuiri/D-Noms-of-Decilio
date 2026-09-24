@@ -355,6 +355,10 @@ main {
 /* =========================
    RECIPES PAGE CARDS ONLY
 ========================= */
+/* Hide View Recipe button on the homepage */
+.home-section .recipe-card span {
+  display: none;
+}
 
 .recipe-collection .recipe-grid {
   grid-template-columns: repeat(3, 1fr);
