@@ -55,7 +55,7 @@ function RecipesPage() {
 
       <main>
         <section className="page-heading">
-          <h1>Recipes</h1>
+          <h1>All Recipes</h1>
           <p>Browse the family recipe collection.</p>
         </section>
 

@@ -21,6 +21,10 @@ function RecipeCard({ recipe }) {
 
         <h3>{recipe.name}</h3>
         <p>{recipe.category}</p>
+
+        <span className = "recipe-card-view">
+            View Recipe
+        </span>
       </article>
     </Link>
   );
