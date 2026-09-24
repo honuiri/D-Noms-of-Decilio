@@ -1,10 +1,11 @@
-# Your Project Name
+# D' Noms of Decilio (DND)
 
 > **Replace this whole file.** It is a worked example of the README your project
 > will be graded from, not a file to leave as it is. Start with
 > [START-HERE.md](START-HERE.md).
 
-One sentence saying what this does and who it is for.
+D' Noms of Decilio (DND) is a family recipe web application created to keep our family's recipes in one place. My family enjoys our cooking and has recipes that we want to preserve, but we do not always have time to teach or explain the ingredients and cooking steps to each other. DND provides a simple way for family members to record, organize, and revisit these recipes.
+The application is intended primarily for my family rather than as a public recipe-sharing platform. It allows users to browse recipes, view their details, and eventually add, edit, and delete recipes.
 
 **Live site:** https://yourusername.github.io/your-repo-name/
 **API:** https://your-api.onrender.com/healthz
@@ -18,9 +19,11 @@ One sentence saying what this does and who it is for.
 
 ## What it does
 
-- Report a sighting with a place, a description and a spookiness rating
-- Browse everything reported, newest first
-- Delete a report
+- Displays the family recipe collection
+- Search recipes by name
+- Filter recipe by category
+- Displays the selected recipe together with the description, ingredients, and steps
+- Allows user to add, edit, or delete a recipe
 
 ## Built with
 
@@ -129,15 +132,74 @@ set the environment variables in its dashboard, and run `server/db/schema.sql`
 once against the hosted database.
 
 ## Project structure
-
-    client/          React front end, built by Vite
-      src/api/       ONE interface, two implementations, chosen by a variable
-      src/components/
-    server/          Express API
-      db/            pool, schema.sql, seed.sql, and a runner for them
-    compose.yml      only if you self-host
-    docs/            your planning documents and weekly reports
-
+```
+D-Noms-of-Decilio/
+│
+├── client/
+│   ├── public/
+│   │   └── ...
+│   │
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── atoms/
+│   │   │   ├── molecules/
+│   │   │   │   └── RecipeCard.jsx
+│   │   │   └── organisms/
+│   │   │       ├── Header.jsx
+│   │   │       └── Footer.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   ├── Recipes.jsx
+│   │   │   ├── RecipeDetail.jsx
+│   │   │   └── AddRecipe.jsx
+│   │   │
+│   │   ├── api/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── .env
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/
+│   ├── src/
+│   │   ├── controllers/
+│   │   │   └── recipeController.js
+│   │   │
+│   │   ├── routes/
+│   │   │   └── recipeRoutes.js
+│   │   │
+│   │   ├── repositories/
+│   │   │   └── recipeRepository.js
+│   │   │
+│   │   ├── app.js
+│   │   └── server.js
+│   │
+│   ├── db/
+│   │   ├── pool.js
+│   │   ├── run.js
+│   │   ├── schema.sql
+│   │   └── seed.sql
+│   │
+│   ├── .dockerignore
+│   ├── .env.example
+│   ├── package.json
+│   └── Dockerfile
+│
+├── docker-compose.yml
+├── .env
+├── .env.example
+├── .gitignore
+│
+├── README.md
+└── SECURITY-CHECKLIST.md
+```
 ## Architecture
 
 Three or four sentences, or a small diagram. Which piece talks to which, and
