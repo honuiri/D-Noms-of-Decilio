@@ -1,40 +1,56 @@
-// The real client. Every function here talks to YOUR Express API.
+// The real client. Every function here talks to your Express API.
 //
-// This is the file that matters for your finals project. mockApi.js exists so
-// you can build the interface before this has anywhere to point.
+// Components do not call fetch directly. They import functions from
+// index.js, which chooses between this real API and mockApi.js.
 
-const BASE = import.meta.env.VITE_API_BASE_URL || ''
+const BASE = import.meta.env.VITE_API_BASE_URL || "";
 
-async function request(path, options) {
+async function request(path, options = {}) {
   const response = await fetch(`${BASE}${path}`, {
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      "Content-Type": "application/json",
+    },
     ...options,
-  })
+  });
 
   if (!response.ok) {
-    // Try to use the API's own message; fall back to the status line.
-    let message = `${response.status} ${response.statusText}`
+    let message = `${response.status} ${response.statusText}`;
+
     try {
-      const body = await response.json()
-      if (body?.error) message = body.error
+      const body = await response.json();
+
+      if (body?.error) {
+        message = body.error;
+      }
     } catch {
-      // The body was not JSON. The status line is all we have.
+      // The response was not JSON.
     }
-    throw new Error(message)
+
+    throw new Error(message);
   }
 
-  return response.status === 204 ? null : response.json()
+  return response.status === 204 ? null : response.json();
 }
 
-export const listSightings = () => request('/api/sightings')
+export const listRecipes = () =>
+  request("/api/recipes");
 
-export const getSighting = (id) => request(`/api/sightings/${id}`)
+export const getRecipe = (id) =>
+  request(`/api/recipes/${id}`);
 
-export const createSighting = (input) =>
-  request('/api/sightings', { method: 'POST', body: JSON.stringify(input) })
+export const createRecipe = (input) =>
+  request("/api/recipes", {
+    method: "POST",
+    body: JSON.stringify(input),
+  });
 
-export const updateSighting = (id, input) =>
-  request(`/api/sightings/${id}`, { method: 'PUT', body: JSON.stringify(input) })
+export const updateRecipe = (id, input) =>
+  request(`/api/recipes/${id}`, {
+    method: "PUT",
+    body: JSON.stringify(input),
+  });
 
-export const deleteSighting = (id) =>
-  request(`/api/sightings/${id}`, { method: 'DELETE' })
+export const deleteRecipe = (id) =>
+  request(`/api/recipes/${id}`, {
+    method: "DELETE",
+  });
