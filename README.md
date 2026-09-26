@@ -65,7 +65,13 @@ Page 10 is the decision page if you do not know which to pick.
 **The client only, in demo mode.** No database needed.
 
     cd client
-    npm install
+    npm install react react-dom react-router-dom vite
+    npm run dev
+
+    cd server
+    npm install express cors pg
+    npm run dev
+
     cp .env.example .env        # VITE_USE_MOCK_API stays true
     npm run dev                 # http://localhost:5173
 

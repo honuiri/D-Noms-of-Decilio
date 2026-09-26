@@ -126,6 +126,7 @@ main {
 
 .nav-dropdown-menu {
   display: none;
+
   position: absolute;
   top: 100%;
   left: 50%;
@@ -137,8 +138,8 @@ main {
   background: var(--color-background);
   border: 1px solid var(--color-primary);
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   z-index: 1001;
 }
 
@@ -361,11 +362,14 @@ main {
   flex: 1;
   height: 45px;
   padding: 7px 16px;
-  border: 1.5px solid var(--color-primary);
+
+  border: 2.5px solid var(--color-primary);
   border-radius: 20px;
   outline: none;
+
   background: transparent;
   color: var(--color-primary);
+
   font-family: "Instrument Sans", sans-serif;
   font-size: 13px;
   font-style: italic;
@@ -383,15 +387,30 @@ main {
 .recipe-filters select {
   min-width: 120px;
   height: 45px;
-  padding: 5px 10px;
+  padding: 5px 25px 5px 12px;
+
+  text-align: center;
   border: none;
   border-radius: 20px;
   outline: none;
+
   background: var(--color-primary);
   color: var(--color-background);
+
   font-family: "Baskervville", serif;
-  font-size: 13px;
+  font-size: 20px;
+
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2 3.5L5 6.5L8 3.5' fill='none' stroke='%23fffcf6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.recipe-filters select:focus {
+  outline: none;
 }
 
 /* =========================================================
@@ -472,43 +491,56 @@ main {
   width: 84%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 0 45px;
+  padding: 0 0 65px;
 }
 
 .recipe-form-section form {
   width: 100%;
 }
 
+/* ---------------------------------------------------------
+   FORM SECTIONS
+--------------------------------------------------------- */
+
 .form-group {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .form-group label,
 .form-group legend {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 
   color: #000;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 600;
 }
+
+/* ---------------------------------------------------------
+   INPUTS
+--------------------------------------------------------- */
 
 .form-group input,
 .form-group textarea,
 .form-group select {
   width: 100%;
 
-  border: 1.5px solid #000;
-  border-radius: 14px;
+  border: 1.5px solid #c7c2b7;
+  border-radius: 13px;
   outline: none;
 
-  background: transparent;
+  background: #fffefa;
   color: #000;
 
   font-family: "Instrument Sans", sans-serif;
   font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .form-group input,
@@ -518,129 +550,222 @@ main {
 }
 
 .form-group textarea {
-  min-height: 110px;
-  padding: 12px 15px;
+  min-height: 120px;
+  padding: 13px 15px;
   resize: vertical;
+  line-height: 1.5;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+  font-style: italic;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
   border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(188, 20, 20, 0.08);
 }
 
-/* Category */
+/* ---------------------------------------------------------
+   RECIPE NAME
+--------------------------------------------------------- */
+
+.recipe-form-section > form > .form-group:first-child input {
+  height: 58px;
+  font-family: "Baskervville", serif;
+  font-size: 21px;
+}
+
+/* ---------------------------------------------------------
+   CATEGORY
+--------------------------------------------------------- */
 
 .form-group select {
-  width: 130px;
+  width: 150px;
   cursor: pointer;
-  background: var(--color-background);
+  background-color: #fffefa;
 }
 
-/* Description */
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
 
 .recipe-form-section > form > .form-group:nth-of-type(3) textarea {
-  min-height: 105px;
+  min-height: 125px;
 }
 
-/* Image URL */
+/* ---------------------------------------------------------
+   IMAGE URL
+--------------------------------------------------------- */
 
 .recipe-form-section > form > .form-group:nth-of-type(4) input {
-  width: 130px;
+  width: 100%;
 }
 
-/* Fieldsets */
+/* ---------------------------------------------------------
+   INGREDIENTS + STEPS
+--------------------------------------------------------- */
 
 .recipe-form-section fieldset {
-  border: none;
-  margin-bottom: 25px;
+  position: relative;
+
+  margin-bottom: 35px;
+  padding: 25px 28px 28px;
+
+  border: 1px solid #ddd6c8;
+  border-radius: 22px;
+
+  background: #f9f5e9;
 }
 
-.recipe-form-section legend {
-  padding: 0;
+.recipe-form-section fieldset legend {
+  width: auto;
+  margin: 0 0 18px;
+  padding: 0 12px;
+
+  color: var(--color-primary);
+
+  font-family: "Baskervville", serif;
+  font-size: 25px;
+  font-weight: 600;
 }
 
-/* Ingredient / step rows */
+/* ---------------------------------------------------------
+   INGREDIENT / STEP ROWS
+--------------------------------------------------------- */
 
 .form-list-item {
   display: flex;
   align-items: center;
   gap: 10px;
+
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 }
 
 .form-list-item input,
 .form-list-item textarea {
   flex: 1;
+  background: var(--color-background);
 }
 
 .form-list-item textarea {
-  min-height: 75px;
+  min-height: 80px;
 }
 
-/* Add / Remove buttons */
+/* Numbered-looking step fields */
 
-.form-list-item button,
-.recipe-form-section fieldset > button {
+.recipe-form-section fieldset:nth-of-type(2) .form-list-item {
+  align-items: flex-start;
+}
+
+/* ---------------------------------------------------------
+   REMOVE BUTTON
+--------------------------------------------------------- */
+
+.form-list-item button {
   flex-shrink: 0;
 
-  padding: 7px 13px;
+  padding: 7px 12px;
+
+  border: 1px solid #d6d2a5;
+  border-radius: 16px;
+
+  background: transparent;
+  color: #6f6a5d;
+
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 11px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-list-item button:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+/* ---------------------------------------------------------
+   ADD BUTTON
+--------------------------------------------------------- */
+
+.recipe-form-section fieldset > button {
+  margin-top: 4px;
+
+  padding: 8px 15px;
 
   border: none;
   border-radius: 18px;
 
-  background: var(--color-accent-2);
-  color: #000;
+  background: var(--color-secondary);
+  color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
   font-size: 12px;
+  font-weight: 600;
 
   cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.recipe-form-section fieldset > button {
-  margin-top: 2px;
-}
-
-.form-list-item button:hover,
 .recipe-form-section fieldset > button:hover {
   opacity: 0.7;
 }
 
-/* Form error */
+/* ---------------------------------------------------------
+   ERROR
+--------------------------------------------------------- */
 
 .form-error {
   margin-bottom: 20px;
+  padding: 12px 16px;
+
+  border-radius: 12px;
+  background: #f8dddd;
+
   color: var(--color-primary);
   font-family: "Instrument Sans", sans-serif;
   font-size: 13px;
 }
 
-/* Form actions */
+/* ---------------------------------------------------------
+   FORM ACTIONS
+--------------------------------------------------------- */
 
 .form-actions {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
-  margin-top: 30px;
+  gap: 15px;
+
+  margin-top: 40px;
 }
 
 .form-actions button,
 .form-actions a {
-  padding: 6px 15px;
+  min-width: 125px;
+  padding: 10px 20px;
+
   border: none;
-  border-radius: 20px;
+  border-radius: 22px;
+
+  text-align: center;
 
   font-family: "Instrument Sans", sans-serif;
   font-size: 13px;
 
   cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
 .form-actions button {
-  background: var(--color-accent-1);
+  background: var(--color-primary);
   color: var(--color-background);
 }
 
@@ -659,26 +784,31 @@ main {
   cursor: not-allowed;
 }
 
-/* Hide the subtitle on Add/Edit page so it matches the reference */
+/* ---------------------------------------------------------
+   ADD / EDIT HEADING
+--------------------------------------------------------- */
 
-main:has(.recipe-form-section) .page-heading p {
-  display: none;
-}
-
-/* Add/Edit heading */
-
-/* Add/Edit heading */
 main:has(.recipe-form-section) .page-heading {
   width: 84%;
   max-width: 1000px;
   padding-top: 40px;
-  padding-bottom: 30px;
+  padding-bottom: 25px;
 }
 
 main:has(.recipe-form-section) .page-heading h1 {
-  padding: 5px 14px;
+  padding: 7px 19px;
+
+  background: var(--color-secondary);
+  color: var(--color-primary);
+
+  border-radius: 30px;
+
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+main:has(.recipe-form-section) .page-heading p {
+  display: none;
 }
 
 /* =========================================================
@@ -790,16 +920,15 @@ main:has(.recipe-form-section) .page-heading h1 {
 
 .recipe-details-description {
   max-width: 600px;
-
   color: #000;
   font-family: "Instrument Sans", sans-serif;
   font-size: 15px;
   line-height: 1.55;
+  text-align: justify;
 }
 
 .recipe-details-date {
   margin-top: 20px;
-
   color: #777;
   font-family: "Instrument Sans", sans-serif;
   font-size: 11px;
@@ -817,10 +946,11 @@ main:has(.recipe-form-section) .page-heading h1 {
 
 .recipe-menu-button {
   padding: 2px 5px;
+
   border: none;
   background: transparent;
-
   color: #000;
+
   font-family: Georgia, serif;
   font-size: 23px;
   line-height: 1;
@@ -844,6 +974,7 @@ main:has(.recipe-form-section) .page-heading h1 {
   background: var(--color-background);
   border: 1px solid var(--color-primary);
   border-radius: 8px;
+
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -855,8 +986,8 @@ main:has(.recipe-form-section) .page-heading h1 {
 
   border: none;
   background: transparent;
-
   color: #000;
+
   text-align: left;
 
   font-family: "Instrument Sans", sans-serif;
@@ -921,11 +1052,11 @@ main:has(.recipe-form-section) .page-heading h1 {
 .recipe-steps li {
   margin-bottom: 9px;
   padding-left: 5px;
-
   color: #000;
   font-family: "Instrument Sans", sans-serif;
   font-size: 15px;
   line-height: 1.65;
+  text-align: justify;
 }
 
 /* =========================================================
@@ -1007,7 +1138,10 @@ main:has(.recipe-form-section) .page-heading h1 {
 
 @media (max-width: 700px) {
 
-  /* Header */
+  /* -------------------------------------------------------
+     HEADER
+  ------------------------------------------------------- */
+
   .site-header {
     padding: 16px 24px;
   }
@@ -1016,31 +1150,37 @@ main:has(.recipe-form-section) .page-heading h1 {
     width: 100px;
   }
 
-  /* Hamburger */
   .hamburger-button {
     display: block;
+
     border: none;
     background: transparent;
     color: var(--color-primary);
+
     font-size: 28px;
     line-height: 1;
+
     cursor: pointer;
     padding: 0;
   }
 
-  /* Navigation */
   .navigation {
     display: none;
+
     position: absolute;
     top: 100%;
     right: 24px;
+
     flex-direction: column;
     align-items: flex-end;
     gap: 15px;
+
     padding: 18px 20px;
+
     background: var(--color-background);
     border: 1px solid var(--color-primary);
     border-radius: 15px;
+
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
@@ -1072,40 +1212,47 @@ main:has(.recipe-form-section) .page-heading h1 {
 
   .recipes-toggle {
     display: block;
+
     border: none;
     background: transparent;
     color: var(--color-primary);
+
     font-family: "Baskervville", serif;
     font-size: 18px;
     line-height: 1;
+
     padding: 4px 5px;
     cursor: pointer;
   }
 
   .nav-dropdown-menu {
     display: none;
+
     position: static;
     transform: none;
+
     min-width: 0;
     padding: 5px 0 0;
+
     background: transparent;
     border: none;
     box-shadow: none;
   }
 
-/* Show categories when Recipes arrow is clicked */
-.nav-dropdown.mobile-open .nav-dropdown-menu {
-  display: block;
-}
+  .nav-dropdown.mobile-open .nav-dropdown-menu {
+    display: block;
+  }
 
-.nav-dropdown-menu a {
-  display: block;
-  padding: 5px 0;
-  font-size: 13px;
-}
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 5px 0;
+    font-size: 13px;
+  }
 
+  /* -------------------------------------------------------
+     PAGE HEADING
+  ------------------------------------------------------- */
 
-  /* Page heading */
   .page-heading {
     width: 90%;
     padding: 20px 0 25px;
@@ -1120,7 +1267,10 @@ main:has(.recipe-form-section) .page-heading h1 {
     font-size: 12px;
   }
 
-  /* Home */
+  /* -------------------------------------------------------
+     HOME
+  ------------------------------------------------------- */
+
   .home-section {
     width: 90%;
   }
@@ -1130,7 +1280,10 @@ main:has(.recipe-form-section) .page-heading h1 {
     font-size: 24px;
   }
 
-  /* Hero */
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
   .hero {
     padding: 75px 20px 35px;
   }
@@ -1139,7 +1292,10 @@ main:has(.recipe-form-section) .page-heading h1 {
     font-size: 36px;
   }
 
-  /* Homepage carousel */
+  /* -------------------------------------------------------
+     HOMEPAGE CAROUSEL
+  ------------------------------------------------------- */
+
   .recipe-carousel {
     display: flex;
     align-items: center;
@@ -1162,16 +1318,21 @@ main:has(.recipe-form-section) .page-heading h1 {
   .carousel-arrow {
     width: 30px;
     height: 40px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     flex-shrink: 0;
+
     border: none;
     background: transparent;
     color: var(--color-primary);
+
     font-family: Georgia, serif;
     font-size: 38px;
     line-height: 1;
+
     cursor: pointer;
   }
 
@@ -1184,19 +1345,36 @@ main:has(.recipe-form-section) .page-heading h1 {
     margin: 0 auto;
   }
 
-  /* Recipes page */
+  /* -------------------------------------------------------
+     RECIPES PAGE
+  ------------------------------------------------------- */
+
   .recipe-collection {
     width: 90%;
   }
 
   .recipe-filters {
+    display: flex;
+    align-items: center;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   .recipe-filters input {
-    height: 40px;
-    font-size: 11px;
+    flex: 1;
+    height: 45px;
+    padding: 7px 16px;
+
+    border: 3px solid var(--color-primary);
+    border-radius: 20px;
+
+    outline: none;
+    background: transparent;
+    color: var(--color-primary);
+
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 13px;
+    font-style: italic;
   }
 
   .recipe-filters select {
@@ -1224,7 +1402,6 @@ main:has(.recipe-form-section) .page-heading h1 {
     font-size: 15px;
   }
 
-  /* Smaller images ONLY on the Recipes collection page */
   .recipe-collection .recipe-image {
     width: 60%;
     margin: 0 auto;
@@ -1236,21 +1413,22 @@ main:has(.recipe-form-section) .page-heading h1 {
 
   .recipe-form-section {
     width: 90%;
-    padding-bottom: 35px;
+    padding-bottom: 40px;
   }
 
   main:has(.recipe-form-section) .page-heading {
     width: 90%;
-    padding-bottom: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   main:has(.recipe-form-section) .page-heading h1 {
-    padding: 5px 13px;
-    font-size: 20px;
+    padding: 6px 15px;
+    font-size: 23px;
   }
 
   .form-group {
-    margin-bottom: 22px;
+    margin-bottom: 24px;
   }
 
   .form-group label,
@@ -1267,36 +1445,73 @@ main:has(.recipe-form-section) .page-heading h1 {
 
   .form-group input,
   .form-group select {
-    height: 46px;
+    height: 47px;
   }
 
   .form-group textarea {
-    min-height: 90px;
+    min-height: 100px;
+  }
+
+  .recipe-form-section > form > .form-group:first-child input {
+    height: 52px;
+    font-size: 18px;
   }
 
   .form-group select {
-    width: 130px;
+    width: 140px;
   }
 
-  .recipe-form-section > form > .form-group:nth-of-type(4) input {
-    width: 130px;
+  .recipe-form-section fieldset {
+    margin-bottom: 28px;
+    padding: 20px 15px 22px;
+    border-radius: 18px;
+  }
+
+  .recipe-form-section fieldset legend {
+    margin-bottom: 15px;
+    padding: 0 8px;
+    font-size: 21px;
   }
 
   .form-list-item {
     align-items: flex-start;
+    gap: 7px;
+  }
+
+  .form-list-item input {
+    min-width: 0;
+  }
+
+  .form-list-item textarea {
+    min-height: 85px;
   }
 
   .form-list-item button {
-    padding: 6px 10px;
+    padding: 6px 9px;
+    font-size: 10px;
+  }
+
+  .recipe-form-section fieldset > button {
+    padding: 8px 13px;
     font-size: 11px;
   }
 
   .form-actions {
-    gap: 30px;
-    margin-top: 25px;
+    gap: 10px;
+    margin-top: 30px;
   }
 
-  /* Recipe details */
+  .form-actions button,
+  .form-actions a {
+    min-width: 115px;
+    padding: 9px 15px;
+    font-size: 12px;
+  }
+
+  /* -------------------------------------------------------
+     RECIPE DETAILS
+  ------------------------------------------------------- */
+
   .recipe-details-page {
     width: 90%;
     padding-top: 35px;
@@ -1367,10 +1582,14 @@ main:has(.recipe-form-section) .page-heading h1 {
     line-height: 1.55;
   }
 
-  /* Footer */
+  /* -------------------------------------------------------
+     FOOTER
+  ------------------------------------------------------- */
+
   .site-footer {
     min-height: auto;
     padding: 25px 24px;
+
     flex-direction: column;
     gap: 15px;
   }
