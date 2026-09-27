@@ -72,8 +72,7 @@ Page 10 is the decision page if you do not know which to pick.
     npm install express cors pg
     npm run dev
 
-    cp .env.example .env        # VITE_USE_MOCK_API stays true
-    npm run dev                 # http://localhost:5173
+Go to: localhost:3000
 
 **The whole stack.** Needs a PostgreSQL, either local or hosted.
 
