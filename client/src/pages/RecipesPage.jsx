@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-
 import Header from "../components/organisms/Header.jsx";
 import Footer from "../components/organisms/Footer.jsx";
 import RecipeCard from "../components/molecules/RecipeCard.jsx";
-
 import { listRecipes } from "../api/index.js";
 
 function RecipesPage() {
@@ -12,6 +10,7 @@ function RecipesPage() {
   const [recipes, setRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [categoryOpen, setCategoryOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -85,19 +84,40 @@ function RecipesPage() {
               aria-label="Search recipes"
             />
 
-            <select
-              value={selectedCategory}
-              onChange={(event) =>
-                setSelectedCategory(event.target.value)
-              }
-              aria-label="Filter recipes by category"
-            >
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
+            <div className="category-dropdown">
+              <button
+                type="button"
+                className="category-dropdown-button"
+                onClick={() => setCategoryOpen(!categoryOpen)}
+                aria-expanded={categoryOpen}
+              >
+                {selectedCategory}
+                <span>{categoryOpen ? "⌃" : "⌄"}</span>
+              </button>
+
+              {categoryOpen && (
+                <div className="category-dropdown-menu">
+                  {categories.map((category) => (
+                    <button
+                      type="button"
+                      key={category}
+                      className={
+                        selectedCategory === category
+                          ? "category-option selected"
+                          : "category-option"
+                      }
+                      onClick={() => {
+                        setSelectedCategory(category);
+                        setCategoryOpen(false);
+                      }}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            
           </div>
 
           {loading && <p>Loading recipes...</p>}
