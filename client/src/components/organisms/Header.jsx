@@ -13,7 +13,7 @@ function Header() {
 
   return (
     <header className="site-header">
-      <Link to="/" className="header-logo" onClick={closeMenu}>
+      <Link to="/home" className="header-logo" onClick={closeMenu}>
         <Logo />
       </Link>
 
@@ -28,7 +28,7 @@ function Header() {
 
       <nav className={`navigation ${menuOpen ? "open" : ""}`}>
         <NavLink
-          to="/"
+          to="/home"
           end
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link"
