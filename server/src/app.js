@@ -111,10 +111,15 @@ app.use("/api/recipes", requireBasicAuth, recipeRoutes);
 
 const clientPath = path.join(__dirname, "../../client/dist");
 
-app.use(requireBasicAuth, express.static(clientPath));
+app.use(express.static(clientPath));
 
-app.get("*", requireBasicAuth, (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(clientPath, "index.html"));
+
+// app.use(requireBasicAuth, express.static(clientPath));
+
+// app.get("*", requireBasicAuth, (req, res) => {
+//   res.sendFile(path.join(clientPath, "index.html"));
 });
 
 export default app;
