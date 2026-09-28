@@ -29,7 +29,7 @@ function LoginPage() {
 
     sessionStorage.setItem("dndCredentials", credentials);
 
-    navigate("/");
+    navigate("/home");
   }
 
   return (
