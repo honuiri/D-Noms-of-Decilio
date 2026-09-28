@@ -63,6 +63,166 @@ main {
 }
 
 /* =========================================================
+LOGIN PAGE
+========================================================= */
+
+.login-page {
+min-height: 100vh;
+min-height: 100svh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 32px 20px;
+background: #fffcf6;
+box-sizing: border-box;
+}
+
+.login-card {
+width: 100%;
+max-width: 480px;
+padding: 48px 44px;
+background: #ffffff;
+border: 2px solid #a2a93e;
+border-radius: 32px;
+box-shadow: 0 12px 35px rgba(82, 65, 35, 0.12);
+text-align: center;
+box-sizing: border-box;
+}
+
+.login-logo {
+width: 82px;
+height: 82px;
+margin: 0 auto 24px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+background: #bc1414;
+color: #ffeda2;
+
+border-radius: 50%;
+
+font-family: "Instrument Sans", sans-serif;
+font-size: 1.6rem;
+font-weight: 700;
+letter-spacing: 0.08em;
+}
+
+.login-card h1 {
+margin: 0;
+color: #bc1414;
+
+font-family: "Instrument Sans", sans-serif;
+font-size: clamp(1.8rem, 4vw, 2.35rem);
+line-height: 1.15;
+}
+
+.login-subtitle {
+margin: 12px auto 32px;
+max-width: 340px;
+
+color: #5d513e;
+
+font-family: "Baskervville", serif;
+font-size: 1.05rem;
+line-height: 1.5;
+}
+
+.login-form {
+display: flex;
+flex-direction: column;
+text-align: left;
+}
+
+.login-form label {
+margin-bottom: 7px;
+
+color: #4d402f;
+
+font-family: "Instrument Sans", sans-serif;
+font-size: 0.9rem;
+font-weight: 600;
+}
+
+.login-form input {
+width: 100%;
+margin-bottom: 20px;
+padding: 14px 16px;
+
+border: 1.5px solid #d6d2a5;
+border-radius: 12px;
+
+background: #fffcf6;
+color: #3f3528;
+
+font-family: "Instrument Sans", sans-serif;
+font-size: 1rem;
+
+outline: none;
+box-sizing: border-box;
+
+transition:
+border-color 0.2s ease,
+box-shadow 0.2s ease,
+background 0.2s ease;
+}
+
+.login-form input {
+border-color: #a2a93e;
+background: #ffffff;
+box-shadow: 0 0 0 3px rgba(162, 169, 62, 0.18);
+}
+
+.login-form input::placeholder {
+color: #9b917f;
+}
+
+.login-error {
+margin: -4px 0 18px;
+
+color: #bc1414;
+
+font-family: "Instrument Sans", sans-serif;
+font-size: 0.9rem;
+font-weight: 600;
+}
+
+.login-form button {
+width: 100%;
+margin-top: 4px;
+padding: 14px 20px;
+
+border: 2px solid #bc1414;
+border-radius: 14px;
+
+background: #bc1414;
+color: #ffeda2;
+
+font-family: "Instrument Sans", sans-serif;
+font-size: 1rem;
+font-weight: 700;
+
+cursor: pointer;
+
+transition:
+background 0.2s ease,
+color 0.2s ease,
+transform 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.login-form button {
+background: #a81111;
+box-shadow: 0 6px 15px rgba(188, 20, 20, 0.2);
+transform: translateY(-1px);
+}
+
+.login-form button {
+transform: translateY(0);
+}
+
+/* =========================================================
    HEADER
 ========================================================= */
 
@@ -1151,6 +1311,47 @@ main:has(.recipe-form-section) .page-heading p {
 ========================================================= */
 
 @media (max-width: 700px) {
+
+  /* =========================================================
+  LOGIN — MOBILE
+  ========================================================= */
+  .login-page {
+padding: 20px 16px;
+}
+
+.login-card {
+max-width: 100%;
+padding: 36px 24px;
+border-radius: 26px;
+}
+
+.login-logo {
+width: 70px;
+height: 70px;
+margin-bottom: 20px;
+
+font-size: 1.35rem;
+
+}
+
+.login-card h1 {
+font-size: 1.75rem;
+}
+
+.login-subtitle {
+margin-top: 10px;
+margin-bottom: 28px;
+font-size: 1rem;
+}
+
+.login-form input {
+padding: 13px 14px;
+margin-bottom: 18px;
+}
+
+.login-form button {
+padding: 13px 18px;
+}
 
   /* -------------------------------------------------------
      HEADER
