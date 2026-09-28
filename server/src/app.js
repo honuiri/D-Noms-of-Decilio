@@ -115,11 +115,6 @@ app.use(express.static(clientPath));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(clientPath, "index.html"));
-
-// app.use(requireBasicAuth, express.static(clientPath));
-
-// app.get("*", requireBasicAuth, (req, res) => {
-//   res.sendFile(path.join(clientPath, "index.html"));
 });
 
 export default app;

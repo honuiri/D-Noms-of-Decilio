@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=../.env src/server.js",
+    "start": "node src/server.js",
     "dev": "node --env-file=../.env --watch src/server.js",
     "db:schema": "node --env-file=../.env db/run.js db/schema.sql",
     "db:seed": "node --env-file=../.env db/run.js db/seed.sql",
