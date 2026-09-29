@@ -121,24 +121,18 @@ function LoginPage() {
           className="login-logo"
         />
 
-        <p className="login-small-text">WELCOME HOME</p>
-
         <img
           src="/assets/slogan.png"
           alt="DND name"
           className="login-name"
         />
 
-        <p className="login-subtitle">
-          A little corner for our family recipes.
-        </p>
-
         <div className="login-divider">
           <span>✦</span>
         </div>
 
         <p className="login-prompt">
-          Enter your family details to continue.
+          Enter our family details to continue.
         </p>
 
         <form onSubmit={handleSubmit} className="login-form">

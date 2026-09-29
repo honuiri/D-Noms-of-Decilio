@@ -67,7 +67,6 @@ main {
 ========================================================= */
 
 .login-page {
-  position: relative;
   min-height: 100vh;
   min-height: 100svh;
 
@@ -75,242 +74,153 @@ main {
   align-items: center;
   justify-content: center;
 
-  padding: 50px 20px;
+  padding: 40px 20px;
 
   background: var(--color-background);
 
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* ---------------------------------------------------------
-   BACKGROUND DECORATIONS
---------------------------------------------------------- */
-
-.login-page::before,
-.login-page::after {
-  position: absolute;
-
-  color: var(--color-secondary);
-
-  font-family: Georgia, serif;
-  pointer-events: none;
-
-  animation: login-float 5s ease-in-out infinite;
-}
-
-.login-page::before {
-  content: "✦  ♡  ✦";
-  top: 18%;
-  left: 8%;
-
-  font-size: 28px;
-  letter-spacing: 18px;
-
-  transform: rotate(-12deg);
-}
-
-.login-page::after {
-  content: "♡  ✦  ♡";
-  right: 7%;
-  bottom: 18%;
-
-  color: var(--color-accent-1);
-  font-size: 24px;
-  letter-spacing: 15px;
-
-  transform: rotate(10deg);
-
-  animation-delay: 1.5s;
-}
 
 /* ---------------------------------------------------------
    LOGIN CONTENT
 --------------------------------------------------------- */
 
 .login-card {
-  position: relative;
-
   width: 100%;
-  max-width: 430px;
-
-  padding: 20px 25px 25px;
-
-  background: transparent;
+  max-width: 470px;
 
   text-align: center;
-
-  animation: login-enter 0.8s ease both;
 }
 
+
 /* ---------------------------------------------------------
-   DECORATIVE DETAILS
+   HIDE DECORATIONS
 --------------------------------------------------------- */
 
 .login-decoration {
-  position: absolute;
-
-  color: var(--color-accent-1);
-
-  font-family: Georgia, serif;
-  font-size: 25px;
-
-  pointer-events: none;
-
-  animation: login-twinkle 3s ease-in-out infinite;
+  display: none;
 }
 
-.login-decoration-one {
-  top: 0;
-  left: 10px;
-
-  transform: rotate(-15deg);
-}
-
-.login-decoration-two {
-  top: 5px;
-  right: 10px;
-
-  color: var(--color-primary);
-
-  transform: rotate(12deg);
-
-  animation-delay: 0.8s;
-}
 
 /* ---------------------------------------------------------
    LOGO
 --------------------------------------------------------- */
 
 .login-logo {
-  width: 115px;
-  height: 115px;
+  width: 105px;
+  height: 105px;
 
   display: block;
 
-  margin: 0 auto 18px;
+  margin: 0 auto 20px;
 
   object-fit: contain;
-
-  animation:
-    login-logo-enter 0.8s ease both,
-    login-float 5s ease-in-out 1s infinite;
 }
 
+
 /* ---------------------------------------------------------
-   SMALL HEADING
+   SMALL WELCOME TEXT
 --------------------------------------------------------- */
 
 .login-small-text {
-  margin: 0 0 7px;
+  margin: 0 0 6px;
 
   color: var(--color-accent-1);
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
 
-  letter-spacing: 0.18em;
-
-  animation: login-fade-up 0.7s ease 0.15s both;
+  letter-spacing: 0.16em;
 }
 
+
 /* ---------------------------------------------------------
-   DND NAME IMAGE
+   DND NAME
 --------------------------------------------------------- */
 
 .login-name {
-  width: min(250px, 75%);
+  width: min(390px, 90%);
   height: auto;
 
   display: block;
 
-  margin: 0 auto;
-
-  animation: login-fade-up 0.7s ease 0.25s both;
+  margin: 0 auto 20px;
 }
+
+
+/* ---------------------------------------------------------
+   LOGIN HEADING
+--------------------------------------------------------- */
+
+.login-card h1 {
+  margin: 0 0 25px;
+
+  color: var(--color-primary);
+
+  font-family: "Baskervville", serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
 
 /* ---------------------------------------------------------
    SUBTITLE
 --------------------------------------------------------- */
 
 .login-subtitle {
-  max-width: 320px;
+  max-width: 330px;
 
-  margin: 12px auto 0;
+  margin: 0 auto 28px;
 
-  color: #665b4b;
+  color: var(--color-primary);
 
-  font-family: "Baskervville", serif;
-  font-size: 1.05rem;
-  font-style: italic;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
 
   line-height: 1.5;
-
-  animation: login-fade-up 0.7s ease 0.35s both;
 }
+
 
 /* ---------------------------------------------------------
    DIVIDER
 --------------------------------------------------------- */
 
 .login-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  width: 75%;
-
-  margin: 22px auto 16px;
-
-  color: var(--color-primary);
-
-  animation: login-fade-up 0.7s ease 0.4s both;
+  display: none;
 }
 
-.login-divider::before,
-.login-divider::after {
-  content: "";
-
-  flex: 1;
-
-  height: 1px;
-
-  background: var(--color-accent-2);
-}
-
-.login-divider span {
-  font-size: 13px;
-
-  animation: login-twinkle 2.5s ease-in-out infinite;
-}
 
 /* ---------------------------------------------------------
    PROMPT
 --------------------------------------------------------- */
 
 .login-prompt {
-  margin: 0 0 22px;
+  margin: 0 0 25px;
 
-  color: #4d402f;
+  color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
   font-size: 13px;
-
-  animation: login-fade-up 0.7s ease 0.45s both;
 }
+
 
 /* ---------------------------------------------------------
    FORM
 --------------------------------------------------------- */
 
 .login-form {
+  width: min(400px, 100%);
+
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
 
   text-align: left;
-
-  animation: login-fade-up 0.7s ease 0.5s both;
 }
+
 
 /* ---------------------------------------------------------
    LABELS
@@ -319,14 +229,13 @@ main {
 .login-form label {
   margin-bottom: 7px;
 
-  color: #44392b;
+  color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-
-  letter-spacing: 0.02em;
 }
+
 
 /* ---------------------------------------------------------
    INPUTS
@@ -334,197 +243,114 @@ main {
 
 .login-form input {
   width: 100%;
+  height: 45px;
 
-  margin-bottom: 18px;
-  padding: 14px 16px;
+  margin-bottom: 24px;
+  padding: 8px 14px;
 
-  border: 1.5px solid var(--color-accent-2);
-  border-radius: 15px;
+  border: 1.5px solid var(--color-accent-1);
+  border-radius: 12px;
 
-  background: #fffefa;
-  color: #3f3528;
+  background: transparent;
+  color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
   font-size: 14px;
 
   outline: none;
 
+  box-sizing: border-box;
+
   transition:
     border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+    background 0.2s ease;
 }
 
 .login-form input::placeholder {
-  color: #a39a89;
-  font-style: italic;
+  color: var(--color-accent-1);
+  opacity: 0.7;
 }
 
 .login-form input:focus {
-  border-color: var(--color-accent-1);
+  border-color: var(--color-primary);
 
-  box-shadow: 0 3px 0 rgba(162, 169, 62, 0.15);
-
-  transform: translateY(-1px);
+  background: #fffefa;
 }
+
 
 /* ---------------------------------------------------------
    ERROR
 --------------------------------------------------------- */
 
 .login-error {
-  margin: -2px 0 16px;
-  padding: 9px 12px;
+  margin: -5px 0 18px;
+  padding: 8px 12px;
 
-  border-radius: 12px;
+  border-radius: 10px;
 
-  background: #fce6e6;
+  background: var(--color-secondary);
 
   color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
   font-size: 12px;
-  font-weight: 600;
 
   text-align: center;
-
-  animation: login-shake 0.35s ease;
 }
 
+
 /* ---------------------------------------------------------
-   ENTER BUTTON
+   LOGIN BUTTON
 --------------------------------------------------------- */
 
 .login-form button {
-  width: 100%;
+  width: 190px;
+  height: 42px;
+
+  align-self: center;
 
   margin-top: 3px;
-  padding: 14px 20px;
 
-  border: 2px solid var(--color-primary);
-  border-radius: 17px;
+  border: none;
+  border-radius: 12px;
 
-  background: var(--color-primary);
-  color: var(--color-secondary);
+  background: var(--color-secondary);
+  color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
 
   cursor: pointer;
 
   transition:
     background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.2s ease;
 }
 
 .login-form button:hover {
-  background: #a81111;
-
-  box-shadow: 0 7px 16px rgba(188, 20, 20, 0.18);
+  background: var(--color-accent-2);
 
   transform: translateY(-2px);
 }
 
 .login-form button:active {
-  transform: translateY(1px);
+  transform: translateY(0);
 }
+
 
 /* ---------------------------------------------------------
    BOTTOM TEXT
 --------------------------------------------------------- */
 
 .login-footer-text {
-  margin: 24px 0 0;
+  margin: 25px 0 0;
 
-  color: #938873;
+  color: var(--color-accent-1);
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-style: italic;
-
-  animation: login-fade-up 0.7s ease 0.6s both;
-}
-
-/* =========================================================
-   LOGIN ANIMATIONS
-========================================================= */
-
-@keyframes login-enter {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes login-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes login-logo-enter {
-  from {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes login-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-7px);
-  }
-}
-
-@keyframes login-twinkle {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(1) rotate(-8deg);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.12) rotate(4deg);
-  }
-}
-
-@keyframes login-shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  25% {
-    transform: translateX(-4px);
-  }
-
-  75% {
-    transform: translateX(4px);
-  }
 }
 
 /* =========================================================
