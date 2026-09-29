@@ -1,143 +1,220 @@
 # D' Noms of Decilio (DND)
 
-> **Replace this whole file.** It is a worked example of the README your project
-> will be graded from, not a file to leave as it is. Start with
-> [START-HERE.md](START-HERE.md).
+D' Noms of Decilio (DND) is a family recipe web application created to keep our family's recipes in one place. My family enjoys cooking and has recipes that we want to preserve, but we do not always have time to teach or explain the ingredients and cooking steps to each other. DND provides a simple way for family members to record, organize, and revisit these recipes.
 
-D' Noms of Decilio (DND) is a family recipe web application created to keep our family's recipes in one place. My family enjoys our cooking and has recipes that we want to preserve, but we do not always have time to teach or explain the ingredients and cooking steps to each other. DND provides a simple way for family members to record, organize, and revisit these recipes.
-The application is intended primarily for my family rather than as a public recipe-sharing platform. It allows users to browse recipes, view their details, and eventually add, edit, and delete recipes.
+The application is intended primarily for my family rather than as a public recipe-sharing platform. It allows users to browse recipes, search and filter the collection, view recipe details, and add, edit, or delete recipes.
 
-**Live site:** https://yourusername.github.io/your-repo-name/
-**API:** https://your-api.onrender.com/healthz
-**Demo video:** (link)
+**Live site:** https://d-noms-of-decilio.onrender.com
 
-> **This deployment is running in demo mode.** The interface is real; the backend
-> is simulated in your browser so the site works without a server. See
-> [Demo mode](#demo-mode) below. Delete this quote once your API is live.
+**API:** https://d-noms-of-decilio.onrender.com/healthz
 
-![A screenshot of the main screen](docs/assets/screenshot.png)
+**Demo video:** Add your demo video link here
+
+![DND Home Page](docs/assets/screenshot.png)
 
 ## What it does
 
 - Displays the family recipe collection
-- Search recipes by name
-- Filter recipe by category
-- Displays the selected recipe together with the description, ingredients, and steps
-- Allows user to add, edit, or delete a recipe
+- Searches recipes by name
+- Filters recipes by category
+- Displays recipe descriptions, ingredients, and cooking steps
+- Allows recipes to be added, edited, and deleted
+- Stores recipe data using a PostgreSQL database
+- Requires a family login before accessing the recipe collection
 
 ## Built with
 
-React and Vite on the front end, Express and PostgreSQL on the back end. The
-client is on GitHub Pages, the API on (host), the database on (host).
+### Front end
 
-## Demo mode
+- React
+- Vite
+- React Router
+- CSS
 
-This repository can run two ways, chosen by one environment variable at **build**
-time.
+### Back end
 
-**Demo mode is the default.** Only the exact string `false` turns it off, so a
-forgotten or mistyped variable leaves you on the simulated backend with a visible
-notice rather than on a silently broken build.
+- Node.js
+- Express
+- PostgreSQL
+- `pg`
+- CORS
 
-| `VITE_USE_MOCK_API` | What happens |
-| --- | --- |
-| unset, or `true` | The client answers its own requests from `localStorage`. No server, no database, nothing shared between visitors. This is what the template ships with, so the GitHub Pages link works on day one. |
-| `false` | The client calls the Express API at `VITE_API_BASE_URL`, which reads and writes real PostgreSQL. |
+### Deployment
 
-**Demo mode is a starting point and a fallback, not a finished project.** Your
-finals submission is all three pieces deployed and talking to each other. Demo
-mode is there so you can build the interface in week one before the API exists,
-and so you have something to show if a free tier is asleep during your demo.
+- **Client:** Render
+- **API:** Render
+- **Database:** Supabase PostgreSQL
 
-GitHub Pages serves files and cannot run Node, so the API and the database can
-never live there. They go somewhere else:
+## How it works
 
-| Piece | Options |
-| --- | --- |
-| **API** | Render, Railway, Fly.io, Koyeb, a VPS, or [self-hosted behind a tunnel](../content/extending-your-app/11-self-hosting.md) |
-| **Database** | Neon, Supabase, Railway, Aiven, or your own PostgreSQL |
+DND uses a React and Vite client that communicates with an Express API.
 
-`content/extending-your-app/` in your course workspace walks through all of it.
-Page 10 is the decision page if you do not know which to pick.
+The React client sends recipe requests to the deployed Express API. The API handles recipe operations and communicates with the PostgreSQL database hosted on Supabase.
 
-## Running it yourself
+The application also has a login gate for the family website. The login credentials are stored as environment variables on the API host and are not included in the repository.
 
-**The client only, in demo mode.** No database needed.
+```
+User
+ │
+ ▼
+React + Vite
+(Render)
+ │
+ │ API requests
+ ▼
+Express API
+(Render)
+ │
+ │ SQL queries
+ ▼
+PostgreSQL
+(Supabase)
+```
 
-    cd client
-    npm install react react-dom react-router-dom vite
-    npm run dev
+## Running the project locally
 
-    cd server
-    npm install express cors pg
-    npm run dev
+### 1. Clone the repository
 
-Go to: localhost:3000
+```bash
+git clone https://github.com/honuiri/D-Noms-of-Decilio.git
+cd D-Noms-of-Decilio
+```
 
-**The whole stack.** Needs a PostgreSQL, either local or hosted.
+### 2. Set up the server
 
-    # 1. the database
-    docker run --name my-pg -e POSTGRES_PASSWORD=devpassword \
-      -e POSTGRES_DB=haunted -p 5432:5432 -d postgres:17
+```bash
+cd server
+npm install
+```
 
-    # 2. the API
-    cd server
-    npm install
-    cp .env.example .env        # check DATABASE_URL
-    npm run db:reset            # creates the tables and adds sample rows
-    npm run dev                 # http://localhost:3000
+Create the environment file using the provided example:
 
-    # 3. the client, in another terminal
-    cd client
-    npm install
-    cp .env.example .env
-    # set VITE_USE_MOCK_API=false
-    npm run dev
+```bash
+cp .env.example .env
+```
 
-Check the API on its own before you blame the client:
+Fill in the required server environment variables, including the PostgreSQL connection string and website login credentials.
 
-    curl http://localhost:3000/healthz     # is the process alive
-    curl http://localhost:3000/readyz      # is the database reachable
-    curl http://localhost:3000/api/sightings
+Then run the database setup:
+
+```bash
+npm run db:reset
+```
+
+Start the server:
+
+```bash
+npm run dev
+```
+
+The API will run locally on:
+
+```text
+http://localhost:3000
+```
+
+### 3. Set up the client
+
+Open another terminal:
+
+```bash
+cd client
+npm install
+```
+
+Create the client environment file:
+
+```bash
+cp .env.example .env
+```
+
+Set the API configuration:
+
+```text
+VITE_USE_MOCK_API=false
+VITE_API_BASE_URL=http://localhost:3000
+```
+
+Then start the client:
+
+```bash
+npm run dev
+```
+
+Open the local Vite URL shown in the terminal.
 
 ## Environment variables
 
-None of these are committed. `.env.example` in each folder lists them with
-placeholder values.
+Environment variables containing credentials or other private values are not committed to the repository. Placeholder values are provided in `.env.example`.
 
-| Name | Where | What it is |
-| --- | --- | --- |
-| `DATABASE_URL` | server | PostgreSQL connection string. Contains a password |
-| `CORS_ORIGINS` | server | comma-separated origins allowed to call the API |
-| `NODE_ENV` | server | `production` on your host |
-| `PORT` | server | **set by the host**, do not set it yourself |
-| `VITE_USE_MOCK_API` | client, at build time | only `false` turns demo mode off; unset means on |
-| `VITE_API_BASE_URL` | client, at build time | your API's public URL, no trailing slash |
+### Server
 
-Every `VITE_` value is compiled into the built JavaScript and is **public**.
-Never put a key, a password or a connection string in one.
+| Variable | Purpose |
+| --- | --- |
+| `PORT` | Port used by the Express server. The hosting provider supplies this in production. |
+| `DATABASE_URL` | PostgreSQL connection string used by the API. |
+| `CORS_ORIGINS` | Origins allowed to access the API. |
+| `SITE_USERNAME` | Username for the website login. |
+| `SITE_PASSWORD` | Password for the website login. |
 
-## Deploying
+### Client
 
-**Client, to GitHub Pages.** Already wired up in
-`.github/workflows/deploy-pages.yml`. Two one-time steps:
+| Variable | Purpose |
+| --- | --- |
+| `VITE_USE_MOCK_API` | Determines whether the client uses the mock API or the real Express API. |
+| `VITE_API_BASE_URL` | Base URL of the Express API. |
 
-1. **Settings > Pages > Build and deployment > Source: GitHub Actions.** Without
-   this the workflow goes green and publishes nothing.
-2. Nothing else, until your API is live. Demo mode is the default, so the first
-   deploy works on its own. When the API is up, add `VITE_USE_MOCK_API` = `false`
-   and `VITE_API_BASE_URL` under **Settings > Secrets and variables > Actions >
-   Variables**, then re-run the workflow.
+> **Note:** Vite environment variables beginning with `VITE_` are included in the built client and should not contain passwords, database credentials, or private API keys.
 
-The repository must be **public** for Pages to serve it on a free account.
+## Deployment
 
-**API and database.** Not automated here, because most hosts deploy straight from
-your repository with no workflow at all. Point your host at the `server/` folder,
-set the environment variables in its dashboard, and run `server/db/schema.sql`
-once against the hosted database.
+### Frontend
+
+The React frontend is deployed on **Render**.
+
+The frontend is built with Vite and connects to the deployed Express API using the `VITE_API_BASE_URL` environment variable.
+
+### API
+
+The Express API is deployed on **Render**.
+
+The production environment variables are configured in Render's environment settings rather than being committed to the repository.
+
+The API provides health-check endpoints:
+
+```text
+/healthz
+/readyz
+```
+
+`/healthz` checks whether the API process is running, while `/readyz` checks whether the API can connect to the database.
+
+### Database
+
+The application uses PostgreSQL hosted through **Supabase**.
+
+The database contains the `recipes` table with fields for the recipe name, description, image URL, creation date, ingredients, steps, and category.
+
+## Security
+
+DND includes several basic security measures appropriate for the project:
+
+- Environment files containing credentials are excluded through `.gitignore`.
+- `.env.example` contains placeholder values instead of real credentials.
+- Website login credentials are stored as environment variables on the API host.
+- Recipe API routes are protected by the login authentication layer.
+- User-submitted recipe data is validated on the server.
+- Database queries use PostgreSQL parameterized queries.
+- CORS is configured through allowed origins.
+- Production credentials are not stored in the repository.
+- GitHub secret scanning and push protection are enabled.
+- Database access is restricted through the Supabase project configuration and network settings.
+
+See [`SECURITY-CHECKLIST.md`](SECURITY-CHECKLIST.md) for the project's security review.
 
 ## Project structure
-```
+
+```text
 D-Noms-of-Decilio/
 │
 ├── client/
@@ -154,21 +231,22 @@ D-Noms-of-Decilio/
 │   │   │       └── Footer.jsx
 │   │   │
 │   │   ├── pages/
-│   │   │   ├── Home.jsx
-│   │   │   ├── Recipes.jsx
-│   │   │   ├── RecipeDetail.jsx
-│   │   │   └── AddRecipe.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── RecipesPage.jsx
+│   │   │   ├── RecipeDetailsPage.jsx
+│   │   │   └── AddEditRecipePage.jsx
 │   │   │
 │   │   ├── api/
-│   │   │   └── api.js
+│   │   │   ├── index.js
+│   │   │   ├── httpApi.js
+│   │   │   ├── mockApi.js
+│   │   │   └── seed.json
 │   │   │
 │   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
+│   │   └── main.jsx
 │   │
-│   ├── .env
 │   ├── .env.example
-│   ├── .gitignore
 │   ├── package.json
 │   └── vite.config.js
 │
@@ -192,50 +270,44 @@ D-Noms-of-Decilio/
 │   │   ├── schema.sql
 │   │   └── seed.sql
 │   │
-│   ├── .dockerignore
 │   ├── .env.example
-│   ├── package.json
-│   └── Dockerfile
+│   └── package.json
 │
-├── docker-compose.yml
-├── .env
+├── docs/
+│   └── ...
+│
 ├── .env.example
 ├── .gitignore
-│
+├── AI-USAGE.md
+├── LICENSE
 ├── README.md
 └── SECURITY-CHECKLIST.md
 ```
+
 ## Architecture
 
-Three or four sentences, or a small diagram. Which piece talks to which, and
-where each one is hosted.
+DND is divided into three main parts: the React front end, the Express API, and the PostgreSQL database. The React client is hosted on Render and sends recipe requests to the Express API, which is also hosted on Render. The Express API validates requests, handles authentication, and performs parameterized SQL queries against the PostgreSQL database hosted on Supabase. Environment variables are used for production credentials and database connection details.
 
-## What I would do next
+## Image credits
 
-Three honest bullets. This paragraph is worth more than it looks.
+Some recipe images currently used in the project are temporary images from the internet and are not owned by DND. Credits belong to their respective owners. These images will be replaced with our own family recipe images in the future.
 
 ## Author
 
-Your name, and a link. Course and section.
+**Yohanna A. Decilio**  
+BS Computer Science — 6APSI  
+Holy Angel University
 
 ## AI use
 
-If you used AI while building this, say so here. Honest disclosure is the
-standard in this course and increasingly outside it, and reporting heavy use
-accurately costs you nothing.
+This project was built with AI assistance during development. AI was used for tasks including code assistance, debugging, explaining technical concepts, reviewing implementation choices, and helping with documentation.
 
-This section is the last 10 points of the finals badge, and it wants three
-things:
+The final implementation was reviewed, tested, and adapted by the author to fit the project's requirements.
 
-![Built with AI assistance](https://img.shields.io/badge/built%20with-AI%20assistance-0b5fff)
+[![Built with AI assistance](https://img.shields.io/badge/built%20with-AI%20assistance-0b5fff)](AI-USAGE.md)
 
-- the badge above, or one you like better
-- a line naming which assistant you used and how much of the work it touched
-- a link to [AI-USAGE.md](AI-USAGE.md), where the full account lives
-
-Keep the detail in `AI-USAGE.md` rather than here. This section is the summary a
-visitor reads; that file is the record the badge is graded from.
+For the detailed record of AI use, see [`AI-USAGE.md`](AI-USAGE.md).
 
 ## Licence
 
-MIT, see [LICENSE](LICENSE). Put your own name in it.
+MIT License. See [`LICENSE`](LICENSE) for the full license.
