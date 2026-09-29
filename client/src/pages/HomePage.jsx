@@ -106,9 +106,9 @@ function HomePage() {
             All Recipes
           </Link>
         </section>
-      </main>
 
-      <center>Images used are not owned by DND. Credits to their respective owners.</center>
+        <center>Images used are not owned by DND. Credits to their respective owners.</center>
+      </main>
 
       <Footer />
     </div>
