@@ -123,7 +123,11 @@ function LoginPage() {
 
         <p className="login-small-text">WELCOME HOME</p>
 
-        <h1>D' Noms of Decilio</h1>
+        <img
+          src="/assets/slogan.png"
+          alt="DND name"
+          className="login-name"
+        />
 
         <p className="login-subtitle">
           A little corner for our family recipes.

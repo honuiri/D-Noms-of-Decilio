@@ -67,57 +67,80 @@ main {
 ========================================================= */
 
 .login-page {
+  position: relative;
   min-height: 100vh;
   min-height: 100svh;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 40px 20px;
+  padding: 50px 20px;
 
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(255, 237, 162, 0.55) 0,
-      rgba(255, 237, 162, 0) 25%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      rgba(162, 169, 62, 0.18) 0,
-      rgba(162, 169, 62, 0) 28%
-    ),
-    var(--color-background);
+  background: var(--color-background);
 
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
+/* ---------------------------------------------------------
+   BACKGROUND DECORATIONS
+--------------------------------------------------------- */
+
+.login-page::before,
+.login-page::after {
+  position: absolute;
+
+  color: var(--color-secondary);
+
+  font-family: Georgia, serif;
+  pointer-events: none;
+
+  animation: login-float 5s ease-in-out infinite;
+}
+
+.login-page::before {
+  content: "✦  ♡  ✦";
+  top: 18%;
+  left: 8%;
+
+  font-size: 28px;
+  letter-spacing: 18px;
+
+  transform: rotate(-12deg);
+}
+
+.login-page::after {
+  content: "♡  ✦  ♡";
+  right: 7%;
+  bottom: 18%;
+
+  color: var(--color-accent-1);
+  font-size: 24px;
+  letter-spacing: 15px;
+
+  transform: rotate(10deg);
+
+  animation-delay: 1.5s;
+}
 
 /* ---------------------------------------------------------
-   LOGIN CARD
+   LOGIN CONTENT
 --------------------------------------------------------- */
 
 .login-card {
   position: relative;
 
   width: 100%;
-  max-width: 470px;
+  max-width: 430px;
 
-  padding: 48px 48px 38px;
+  padding: 20px 25px 25px;
 
-  background: #ffffff;
-
-  border: 2px solid var(--color-accent-1);
-  border-radius: 36px;
-
-  box-shadow:
-    0 18px 45px rgba(82, 65, 35, 0.10),
-    0 3px 0 rgba(188, 20, 20, 0.08);
+  background: transparent;
 
   text-align: center;
 
-  overflow: hidden;
+  animation: login-enter 0.8s ease both;
 }
-
 
 /* ---------------------------------------------------------
    DECORATIVE DETAILS
@@ -129,27 +152,30 @@ main {
   color: var(--color-accent-1);
 
   font-family: Georgia, serif;
-  font-size: 24px;
+  font-size: 25px;
 
   pointer-events: none;
+
+  animation: login-twinkle 3s ease-in-out infinite;
 }
 
 .login-decoration-one {
-  top: 20px;
-  left: 25px;
+  top: 0;
+  left: 10px;
 
   transform: rotate(-15deg);
 }
 
 .login-decoration-two {
-  top: 25px;
-  right: 27px;
+  top: 5px;
+  right: 10px;
 
   color: var(--color-primary);
 
   transform: rotate(12deg);
-}
 
+  animation-delay: 0.8s;
+}
 
 /* ---------------------------------------------------------
    LOGO
@@ -161,11 +187,14 @@ main {
 
   display: block;
 
-  margin: 0 auto 20px;
+  margin: 0 auto 18px;
 
   object-fit: contain;
-}
 
+  animation:
+    login-logo-enter 0.8s ease both,
+    login-float 5s ease-in-out 1s infinite;
+}
 
 /* ---------------------------------------------------------
    SMALL HEADING
@@ -181,25 +210,24 @@ main {
   font-weight: 700;
 
   letter-spacing: 0.18em;
-}
 
+  animation: login-fade-up 0.7s ease 0.15s both;
+}
 
 /* ---------------------------------------------------------
-   TITLE
+   DND NAME IMAGE
 --------------------------------------------------------- */
 
-.login-card h1 {
-  margin: 0;
+.login-name {
+  width: min(250px, 75%);
+  height: auto;
 
-  color: var(--color-primary);
+  display: block;
 
-  font-family: "Baskervville", serif;
-  font-size: clamp(2rem, 5vw, 2.7rem);
-  font-weight: 600;
+  margin: 0 auto;
 
-  line-height: 1.1;
+  animation: login-fade-up 0.7s ease 0.25s both;
 }
-
 
 /* ---------------------------------------------------------
    SUBTITLE
@@ -217,8 +245,9 @@ main {
   font-style: italic;
 
   line-height: 1.5;
-}
 
+  animation: login-fade-up 0.7s ease 0.35s both;
+}
 
 /* ---------------------------------------------------------
    DIVIDER
@@ -234,6 +263,8 @@ main {
   margin: 22px auto 16px;
 
   color: var(--color-primary);
+
+  animation: login-fade-up 0.7s ease 0.4s both;
 }
 
 .login-divider::before,
@@ -249,8 +280,9 @@ main {
 
 .login-divider span {
   font-size: 13px;
-}
 
+  animation: login-twinkle 2.5s ease-in-out infinite;
+}
 
 /* ---------------------------------------------------------
    PROMPT
@@ -263,8 +295,9 @@ main {
 
   font-family: "Instrument Sans", sans-serif;
   font-size: 13px;
-}
 
+  animation: login-fade-up 0.7s ease 0.45s both;
+}
 
 /* ---------------------------------------------------------
    FORM
@@ -275,8 +308,9 @@ main {
   flex-direction: column;
 
   text-align: left;
-}
 
+  animation: login-fade-up 0.7s ease 0.5s both;
+}
 
 /* ---------------------------------------------------------
    LABELS
@@ -294,7 +328,6 @@ main {
   letter-spacing: 0.02em;
 }
 
-
 /* ---------------------------------------------------------
    INPUTS
 --------------------------------------------------------- */
@@ -305,10 +338,10 @@ main {
   margin-bottom: 18px;
   padding: 14px 16px;
 
-  border: 1.5px solid #d6d2a5;
+  border: 1.5px solid var(--color-accent-2);
   border-radius: 15px;
 
-  background: #fffcf6;
+  background: #fffefa;
   color: #3f3528;
 
   font-family: "Instrument Sans", sans-serif;
@@ -316,12 +349,10 @@ main {
 
   outline: none;
 
-  box-sizing: border-box;
-
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
-    background 0.2s ease;
+    transform 0.2s ease;
 }
 
 .login-form input::placeholder {
@@ -332,12 +363,10 @@ main {
 .login-form input:focus {
   border-color: var(--color-accent-1);
 
-  background: #ffffff;
+  box-shadow: 0 3px 0 rgba(162, 169, 62, 0.15);
 
-  box-shadow:
-    0 0 0 3px rgba(162, 169, 62, 0.15);
+  transform: translateY(-1px);
 }
-
 
 /* ---------------------------------------------------------
    ERROR
@@ -358,8 +387,9 @@ main {
   font-weight: 600;
 
   text-align: center;
-}
 
+  animation: login-shake 0.35s ease;
+}
 
 /* ---------------------------------------------------------
    ENTER BUTTON
@@ -393,16 +423,14 @@ main {
 .login-form button:hover {
   background: #a81111;
 
-  box-shadow:
-    0 7px 16px rgba(188, 20, 20, 0.18);
+  box-shadow: 0 7px 16px rgba(188, 20, 20, 0.18);
 
   transform: translateY(-2px);
 }
 
 .login-form button:active {
-  transform: translateY(0);
+  transform: translateY(1px);
 }
-
 
 /* ---------------------------------------------------------
    BOTTOM TEXT
@@ -416,6 +444,87 @@ main {
   font-family: "Instrument Sans", sans-serif;
   font-size: 11px;
   font-style: italic;
+
+  animation: login-fade-up 0.7s ease 0.6s both;
+}
+
+/* =========================================================
+   LOGIN ANIMATIONS
+========================================================= */
+
+@keyframes login-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes login-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes login-logo-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes login-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes login-twinkle {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1) rotate(-8deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12) rotate(4deg);
+  }
+}
+
+@keyframes login-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
 }
 
 /* =========================================================
@@ -1509,18 +1618,32 @@ main:has(.recipe-form-section) .page-heading p {
 @media (max-width: 700px) {
 
   /* =========================================================
-  LOGIN — MOBILE
+   LOGIN — MOBILE
   ========================================================= */
+
   .login-page {
-    padding: 24px 16px;
+    padding: 30px 16px;
   }
 
   .login-card {
     max-width: 430px;
+    padding: 20px 12px 25px;
+  }
 
-    padding: 38px 24px 30px;
+  .login-page::before {
+    top: 12%;
+    left: 2%;
 
-    border-radius: 30px;
+    font-size: 20px;
+    letter-spacing: 10px;
+  }
+
+  .login-page::after {
+    right: 2%;
+    bottom: 12%;
+
+    font-size: 19px;
+    letter-spacing: 9px;
   }
 
   .login-decoration {
@@ -1528,20 +1651,20 @@ main:has(.recipe-form-section) .page-heading p {
   }
 
   .login-decoration-one {
-    top: 17px;
-    left: 20px;
+    top: 3px;
+    left: 5px;
   }
 
   .login-decoration-two {
-    top: 20px;
-    right: 21px;
+    top: 5px;
+    right: 5px;
   }
 
   .login-logo {
     width: 92px;
     height: 92px;
 
-    margin-bottom: 17px;
+    margin-bottom: 15px;
   }
 
   .login-small-text {
@@ -1549,13 +1672,12 @@ main:has(.recipe-form-section) .page-heading p {
     letter-spacing: 0.15em;
   }
 
-  .login-card h1 {
-    font-size: 2rem;
+  .login-name {
+    width: min(220px, 75%);
   }
 
   .login-subtitle {
     margin-top: 10px;
-
     font-size: 0.98rem;
   }
 
@@ -1568,27 +1690,22 @@ main:has(.recipe-form-section) .page-heading p {
 
   .login-prompt {
     margin-bottom: 20px;
-
     font-size: 12px;
   }
 
   .login-form input {
     padding: 13px 14px;
-
     margin-bottom: 16px;
-
     font-size: 14px;
   }
 
   .login-form button {
     padding: 13px 18px;
-
     font-size: 13px;
   }
 
   .login-footer-text {
     margin-top: 21px;
-
     font-size: 10px;
   }
 
