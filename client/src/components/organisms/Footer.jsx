@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="site-footer">
-      <span>Back to Top</span>
+      <span>By Yona</span>
 
       <div className="footer-center">
         <img
