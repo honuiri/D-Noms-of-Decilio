@@ -74,11 +74,9 @@ main {
   align-items: center;
   justify-content: center;
 
-  padding: 40px 20px;
+  padding: 50px 24px;
 
   background: var(--color-background);
-
-  box-sizing: border-box;
 }
 
 
@@ -87,19 +85,16 @@ main {
 --------------------------------------------------------- */
 
 .login-card {
-  width: 100%;
-  max-width: 470px;
+  width: min(680px, 100%);
 
   text-align: center;
-}
 
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
 
-/* ---------------------------------------------------------
-   HIDE DECORATIONS
---------------------------------------------------------- */
-
-.login-decoration {
-  display: none;
+  padding: 40px 20px;
 }
 
 
@@ -108,59 +103,49 @@ main {
 --------------------------------------------------------- */
 
 .login-logo {
-  width: 105px;
-  height: 105px;
+  width: 125px;
+  height: 125px;
 
   display: block;
-
-  margin: 0 auto 20px;
+  margin: 0 auto 25px;
 
   object-fit: contain;
 }
 
 
 /* ---------------------------------------------------------
-   SMALL WELCOME TEXT
+   SMALL HEADING
 --------------------------------------------------------- */
 
 .login-small-text {
-  margin: 0 0 6px;
-
-  color: var(--color-accent-1);
-
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-
-  letter-spacing: 0.16em;
+  display: none;
 }
 
 
 /* ---------------------------------------------------------
-   DND NAME
+   NAME / TITLE
 --------------------------------------------------------- */
 
 .login-name {
-  width: min(390px, 90%);
+  width: min(500px, 90%);
   height: auto;
 
   display: block;
-
-  margin: 0 auto 20px;
+  margin: 0 auto 30px;
 }
 
 
 /* ---------------------------------------------------------
-   LOGIN HEADING
+   LOGIN TITLE
 --------------------------------------------------------- */
 
 .login-card h1 {
-  margin: 0 0 25px;
+  margin: 0 0 40px;
 
   color: var(--color-primary);
 
   font-family: "Baskervville", serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
 }
 
@@ -170,39 +155,19 @@ main {
 --------------------------------------------------------- */
 
 .login-subtitle {
-  max-width: 330px;
-
-  margin: 0 auto 28px;
-
-  color: var(--color-primary);
-
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 13px;
-
-  line-height: 1.5;
-}
-
-
-/* ---------------------------------------------------------
-   DIVIDER
---------------------------------------------------------- */
-
-.login-divider {
   display: none;
 }
 
 
 /* ---------------------------------------------------------
-   PROMPT
+   DECORATIONS / DIVIDER
 --------------------------------------------------------- */
 
-.login-prompt {
-  margin: 0 0 25px;
-
-  color: var(--color-primary);
-
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 13px;
+.login-decoration,
+.login-divider,
+.login-prompt,
+.login-footer-text {
+  display: none;
 }
 
 
@@ -211,7 +176,7 @@ main {
 --------------------------------------------------------- */
 
 .login-form {
-  width: min(400px, 100%);
+  width: min(560px, 100%);
 
   margin: 0 auto;
 
@@ -227,12 +192,12 @@ main {
 --------------------------------------------------------- */
 
 .login-form label {
-  margin-bottom: 7px;
+  margin-bottom: 9px;
 
   color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -243,38 +208,36 @@ main {
 
 .login-form input {
   width: 100%;
-  height: 45px;
+  height: 56px;
 
-  margin-bottom: 24px;
-  padding: 8px 14px;
+  margin-bottom: 28px;
+  padding: 12px 18px;
 
   border: 1.5px solid var(--color-accent-1);
-  border-radius: 12px;
+  border-radius: 13px;
 
   background: transparent;
-  color: var(--color-primary);
+  color: #000;
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 
   outline: none;
 
-  box-sizing: border-box;
-
   transition:
     border-color 0.2s ease,
-    background 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
 .login-form input::placeholder {
-  color: var(--color-accent-1);
-  opacity: 0.7;
+  color: #a39a89;
+  font-style: italic;
 }
 
 .login-form input:focus {
   border-color: var(--color-primary);
 
-  background: #fffefa;
+  box-shadow: 0 0 0 3px rgba(188, 20, 20, 0.08);
 }
 
 
@@ -283,17 +246,16 @@ main {
 --------------------------------------------------------- */
 
 .login-error {
-  margin: -5px 0 18px;
-  padding: 8px 12px;
+  margin: -5px 0 20px;
+  padding: 10px 12px;
 
   border-radius: 10px;
 
-  background: var(--color-secondary);
-
+  background: #f8dddd;
   color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 12px;
+  font-size: 13px;
 
   text-align: center;
 }
@@ -304,53 +266,35 @@ main {
 --------------------------------------------------------- */
 
 .login-form button {
-  width: 190px;
-  height: 42px;
+  width: 230px;
+  height: 52px;
 
-  align-self: center;
-
-  margin-top: 3px;
+  margin: 10px auto 0;
 
   border: none;
-  border-radius: 12px;
+  border-radius: 15px;
 
   background: var(--color-secondary);
   color: var(--color-primary);
 
   font-family: "Instrument Sans", sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
 
   cursor: pointer;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .login-form button:hover {
-  background: var(--color-accent-2);
-
   transform: translateY(-2px);
+  opacity: 0.85;
 }
 
 .login-form button:active {
   transform: translateY(0);
-}
-
-
-/* ---------------------------------------------------------
-   BOTTOM TEXT
---------------------------------------------------------- */
-
-.login-footer-text {
-  margin: 25px 0 0;
-
-  color: var(--color-accent-1);
-
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 10px;
-  font-style: italic;
 }
 
 /* =========================================================
@@ -1448,91 +1392,48 @@ main:has(.recipe-form-section) .page-heading p {
   ========================================================= */
 
   .login-page {
-    padding: 30px 16px;
+    padding: 30px 20px;
   }
 
   .login-card {
-    max-width: 430px;
-    padding: 20px 12px 25px;
-  }
-
-  .login-page::before {
-    top: 12%;
-    left: 2%;
-
-    font-size: 20px;
-    letter-spacing: 10px;
-  }
-
-  .login-page::after {
-    right: 2%;
-    bottom: 12%;
-
-    font-size: 19px;
-    letter-spacing: 9px;
-  }
-
-  .login-decoration {
-    font-size: 20px;
-  }
-
-  .login-decoration-one {
-    top: 3px;
-    left: 5px;
-  }
-
-  .login-decoration-two {
-    top: 5px;
-    right: 5px;
+    width: 100%;
+    padding: 25px 5px;
   }
 
   .login-logo {
-    width: 92px;
-    height: 92px;
-
-    margin-bottom: 15px;
-  }
-
-  .login-small-text {
-    font-size: 9px;
-    letter-spacing: 0.15em;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
   }
 
   .login-name {
-    width: min(220px, 75%);
+    width: min(400px, 95%);
+    margin-bottom: 25px;
   }
 
-  .login-subtitle {
-    margin-top: 10px;
-    font-size: 0.98rem;
+  .login-card h1 {
+    margin-bottom: 30px;
+    font-size: 27px;
   }
 
-  .login-divider {
-    width: 80%;
-
-    margin-top: 19px;
-    margin-bottom: 14px;
+  .login-form {
+    width: 100%;
   }
 
-  .login-prompt {
-    margin-bottom: 20px;
-    font-size: 12px;
+  .login-form label {
+    font-size: 14px;
   }
 
   .login-form input {
-    padding: 13px 14px;
-    margin-bottom: 16px;
+    height: 52px;
+    margin-bottom: 22px;
     font-size: 14px;
   }
 
   .login-form button {
-    padding: 13px 18px;
-    font-size: 13px;
-  }
-
-  .login-footer-text {
-    margin-top: 21px;
-    font-size: 10px;
+    width: 210px;
+    height: 50px;
+    font-size: 14px;
   }
 
   /* -------------------------------------------------------
