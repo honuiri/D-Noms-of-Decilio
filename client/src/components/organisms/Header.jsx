@@ -23,7 +23,9 @@ function Header() {
         aria-label="Toggle navigation"
         aria-expanded={menuOpen}
       >
-        ☰
+        <span className="hamburger-bar" />
+        <span className="hamburger-bar" />
+        <span className="hamburger-bar" />
       </button>
 
       <nav className={`navigation ${menuOpen ? "open" : ""}`}>

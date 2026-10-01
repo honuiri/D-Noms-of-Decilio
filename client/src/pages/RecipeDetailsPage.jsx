@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
 import Header from "../components/organisms/Header.jsx";
 import Footer from "../components/organisms/Footer.jsx";
-
 import { deleteRecipe, getRecipe } from "../api/index.js";
 
 function RecipeDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const [activeTab, setActiveTab] = useState("ingredients");
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -180,7 +178,31 @@ function RecipeDetailsPage() {
           </section>
 
           {/* Ingredients and steps */}
-          <section className="recipe-content">
+          <section className="recipe-content" data-tab={activeTab}>
+            {/* Mobile tabs (hidden on desktop) */}
+            <div className="recipe-tabs" role="tablist">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "ingredients"}
+                className={
+                  activeTab === "ingredients" ? "recipe-tab active" : "recipe-tab"
+                }
+                onClick={() => setActiveTab("ingredients")}
+              >
+                Ingredients ({recipe.ingredients?.length || 0})
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "steps"}
+                className={activeTab === "steps" ? "recipe-tab active" : "recipe-tab"}
+                onClick={() => setActiveTab("steps")}
+              >
+                Steps ({recipe.steps?.length || 0})
+              </button>
+            </div>
 
             <section className="recipe-ingredients">
               <h2>Ingredients</h2>
