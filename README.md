@@ -10,7 +10,27 @@ The application is intended primarily for my family rather than as a public reci
 
 **Demo video:** https://drive.google.com/drive/folders/1HWlZ0ZVv5LFGuHRc7mUuqTpDixHpx8Qo?usp=sharing
 
-![DND Home Page](docs/assets/screenshot.png)
+## Screenshots
+
+### Home
+
+
+
+### Recipes
+
+
+
+### Recipe Details
+
+
+
+### Add/Edit Recipe
+
+
+
+### Mobile View
+
+
 
 ## What it does
 
