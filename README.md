@@ -12,25 +12,29 @@ The application is intended primarily for my family rather than as a public reci
 
 ## Screenshots
 
+## Login
+
+<img width="1919" height="943" alt="image" src="https://github.com/user-attachments/assets/133e6959-c62b-4410-bb2e-5b8ed3595af5" />
+
 ### Home
 
-
+<img width="1904" height="943" alt="image" src="https://github.com/user-attachments/assets/7007665c-f4d3-4d03-868d-8b8ee7cae981" />
 
 ### Recipes
 
-
+<img width="1919" height="943" alt="image" src="https://github.com/user-attachments/assets/2274170f-2f19-42d2-b322-dd85e2573a7f" />
 
 ### Recipe Details
 
-
+<img width="1906" height="942" alt="image" src="https://github.com/user-attachments/assets/3f0ac66b-93ae-4515-a35e-4ebe703191ca" />
 
 ### Add/Edit Recipe
 
-
+<img width="1903" height="943" alt="image" src="https://github.com/user-attachments/assets/e38f6f5f-05c0-4a4d-8faf-9f000e24a847" />
 
 ### Mobile View
 
-
+<img width="392" height="808" alt="image" src="https://github.com/user-attachments/assets/d98d817a-ba56-46ae-8ccc-03baca68c59d" />
 
 ## What it does
 
