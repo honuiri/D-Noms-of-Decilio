@@ -31,7 +31,7 @@ If your project has no workflows, mark every row N/A and say so once.
 | 8 | Secrets are stored in repository Actions secrets and read with `${{ secrets.NAME }}` | **N/A** | The GitHub Actions workflow does not use repository secrets. The required client deployment variables are not secret credentials. |
 | 9 | No workflow step echoes, dumps or debug-prints a secret, and I opened a recent run's log to confirm | **Yes** | The workflow does not echo, dump, or debug-print secret values. |
 | 10 | Uploaded build artifacts contain no `.env`, key file or generated config | **Yes** | `.env` files and build output are gitignored, and the client build contains only the public frontend configuration required for deployment. |
-| 11 | Third-party actions are pinned to a commit SHA, not a moveable tag | **No** | The Pages workflow uses version tags for its GitHub Actions rather than pinning each action to a commit SHA. |
+| 11 | Third-party actions are pinned to a commit SHA, not a moveable tag | **N/A** | The project does not use GitHub Actions workflows for deployment; the frontend and API are deployed through Render. |
 | 12 | Secret scanning and push protection are enabled on the repository | **Yes** | GitHub secret scanning and push protection are enabled for the repository. |
 
 ## Database

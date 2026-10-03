@@ -8,7 +8,7 @@ The application is intended primarily for my family rather than as a public reci
 
 **API:** https://d-noms-of-decilio.onrender.com/healthz
 
-**Demo video:** Add your demo video link here
+**Demo video:** https://drive.google.com/drive/folders/1HWlZ0ZVv5LFGuHRc7mUuqTpDixHpx8Qo?usp=sharing
 
 ![DND Home Page](docs/assets/screenshot.png)
 
