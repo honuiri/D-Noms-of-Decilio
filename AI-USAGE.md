@@ -1,15 +1,8 @@
 # AI usage
 
-This project was built with AI assistance. This file is the record of it. It is
-graded as the finals badge, and it is worth 100 points.
-
-Start it in week 1 and keep it up as you go. The commit history of this file is
-part of the evidence: a file written all at once the night before the deadline
-looks exactly like what it is.
+This project was built with AI assistance. This file is the record of it.
 
 ## 1. How I used AI
-
-At least six entries. One per real use. Every entry needs a commit link.
 
 ### 2026-09-24 - Set up Atomic Design Folders
 
@@ -51,7 +44,7 @@ At least six entries. One per real use. Every entry needs a commit link.
 - **What I kept, what I changed, and why:** I kept the basic authentication structure and the sessionStorage approach because they fit the project's requirement for a private family recipe archive. I also kept the server-side credential checking so the username and password are not simply validated on the client. I changed the navigation and login behavior to match my website's pages, so a successful login redirects to the Home page instead of staying on the login page.
 - **Commit:** https://github.com/honuiri/D-Noms-of-Decilio/commit/2debd48b083a3414e08fef9488c3232cb0d01022
 
-### YYYY-MM-DD - short title
+### Y2026-09-28 - Deployment
 
 - **Tool:** ChatGPT
 - **What I asked for:** Help me understand and set up the deployment of my DND website, including the React frontend, Express API, environment variables, and Render deployment.
@@ -60,9 +53,6 @@ At least six entries. One per real use. Every entry needs a commit link.
 - **Commit:** https://github.com/honuiri/D-Noms-of-Decilio/commit/fef92b2ea0df07a0f37401611d2ef59c388c0197
 
 ## 2. Where the AI got it wrong
-
-Three cases. Be specific. If you write that the AI was never wrong, this section
-scores zero.
 
 ### Case 1 - Recipe dropdown styling
 
@@ -86,12 +76,6 @@ scores zero.
 - **Commit:** https://github.com/honuiri/D-Noms-of-Decilio/commit/34f1c18e3fa092863541d7bab9921ea64542b7ce 
 
 ## 3. Who wrote what
-
-At least a fifth of this project is code you wrote yourself. Name it, and explain
-it in your own words.
-
-> Group projects: give each member their own heading below, and use your GitHub
-> handle as the heading. You are graded on your own section.
 
 ### Written by me
 
