@@ -1,20 +1,18 @@
 # Project documents
 
-Everything your project is marked on that is not code. Keep it here, in the
-repository, so it is versioned alongside the thing it describes.
+This folder contains the project documents for **D' Noms of Decilio (DND)**. These documents are kept in the repository so they stay versioned alongside the application.
 
-| File | What it is | When |
-| --- | --- | --- |
-| [01-proposal.md](01-proposal.md) | the revised proposal | finals, m8a1 |
-| [02-mockup.md](02-mockup.md) | what the app will look like | finals, m8a2 |
-| [03-design-system.md](03-design-system.md) | colours, type, components | finals, m8a3 |
-| [04-weekly-reports.md](04-weekly-reports.md) | a few lines a week | every week |
-| [05-demo-video.md](05-demo-video.md) | the recording, and its plan | the end |
-| [06-security-and-privacy.md](06-security-and-privacy.md) | what you checked before making this public | before your first push |
+| File | What it is |
+| --- | --- |
+| [01-proposal.md](01-proposal.md) | Revised project proposal and project plan |
+| [02-mockup.md](02-mockup.md) | High-fidelity mockup and comparison with the final application |
+| [03-design-system.md](03-design-system.md) | Colours, typography, spacing, components, and interface states |
+| [04-weekly-reports.md](04-weekly-reports.md) | Weekly development progress and reflections |
+| [05-demo-video.md](05-demo-video.md) | Demo video link and presentation structure |
+| [06-security-and-privacy.md](06-security-and-privacy.md) | Security and privacy checklist |
 
-Put images in `assets/`. A screenshot named `assets/screenshot.png` is referenced
-by the main README, and a README with an image reads as finished in a way one
-without an image does not.
+## Assets
 
-**Write these as you go.** A weekly report written on the last day is obvious to
-read and worth very little.
+The `assets/` folder contains supporting images and documents used by the project documentation, such as the design system PDF and mockup images.
+
+These documents and assets are maintained together with the project so that the planning, design, development progress, demo, and security review can be reviewed alongside the final application.

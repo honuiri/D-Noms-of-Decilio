@@ -1,27 +1,47 @@
-# Weekly reports
+# Weekly Reports
 
-Five minutes a week. Add a new section at the top; never edit an old one.
+## Week of 2026-09-23
 
-The value is entirely in writing them **while it is happening**. What took four
-hours and why is invisible a month later, and it is exactly what your journal
-needs.
+**Done.**  
+Started building the frontend, beginning with the Home page. Set up the Express backend and Supabase PostgreSQL database. Started connecting the frontend, backend, and database.
 
----
+**Stuck.**  
+I was initially unsure how the frontend, backend, and database should communicate and where different files and functions should go. I used AI assistance and worked through the setup to better understand how the different parts connect.
 
-## Week of YYYY-MM-DD
+**Hours.**  
+Roughly 15–20 hours.
 
-**Done.** What actually works now, in the deployed app rather than on your laptop.
-
-**Stuck.** What is not working, and the most specific description you can give.
-"CORS" is not specific. "The preflight OPTIONS returns 404 because my router is
-mounted above cors" is.
-
-**Hours.** Roughly. You will need this to estimate anything, ever.
-
-**Next.** One or two things, not a wish list.
+**Next.**  
+Finish the Recipes, Recipe Details, and Add/Edit Recipe pages and connect the main CRUD functionality.
 
 ---
 
-## Week of YYYY-MM-DD
+## Week of 2026-09-27
 
-...
+**Done.**  
+Finished the Home, Recipes, Recipe Details, and Add/Edit Recipe pages. Added mobile navigation with a hamburger menu and continued refining the CSS to match the Figma design. Added basic security measures to the website and backend.
+
+**Stuck.**  
+I had difficulty understanding which parts of the frontend, backend, and database needed to be protected. I also needed to make sure the security changes did not interfere with the application's normal functionality.
+
+**Hours.**  
+Roughly 15–20 hours.
+
+**Next.**  
+Deploy the frontend and backend and test the deployed application and database connection.
+
+---
+
+## Week of 2026-10-03
+
+**Done.**  
+Completed the DND website and deployed both the frontend and backend using Render. Connected the deployed application to the Supabase PostgreSQL database. Fixed the deployment issue where the frontend was still using the mock API instead of the real Express API. Verified that the deployed API returns the recipe data correctly and that recipes display properly on the deployed website. Completed the security checklist, README, and other required project documentation. Finished the remaining CSS refinements and final testing of the main features.
+
+**Stuck.**  
+The deployed frontend initially loaded the mock recipes instead of the real database recipes. I checked the deployed API directly and confirmed that the API was working correctly. The issue was with the frontend's Render environment configuration, which was still using the mock API. After updating the environment variables and redeploying, the frontend successfully connected to the real API and displayed the recipes.
+
+**Hours.**  
+Roughly 10–15 hours.
+
+**Next.**  
+No major development work is left. The project is completed and ready for the final submission and presentation.
