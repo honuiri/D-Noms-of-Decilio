@@ -332,6 +332,6 @@ The final implementation was reviewed, tested, and adapted by the author to fit 
 
 For the detailed record of AI use, see [`AI-USAGE.md`](AI-USAGE.md).
 
-## Licence
+## License
 
 MIT License. See [`LICENSE`](LICENSE) for the full license.
